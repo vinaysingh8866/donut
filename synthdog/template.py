@@ -63,9 +63,13 @@ class SynthDoG(templates.Template):
         self.effect.apply([layer])
 
         image = layer.output(bbox=[0, 0, *size])
+        #fix text for devnagri script
+        #convert to unicode for devnagri script
         label = " ".join(texts)
         label = label.strip()
         label = re.sub(r"\s+", " ", label)
+        #fix text for devnagri script
+
         quality = np.random.randint(self.quality[0], self.quality[1] + 1)
 
         data = {

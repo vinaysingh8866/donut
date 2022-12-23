@@ -74,6 +74,7 @@ class Content:
         self.margin = config.get("margin", [0, 0.1])
         self.reader = TextReader(**config.get("text", {}))
         self.font = components.BaseFont(**config.get("font", {}))
+        print((self.font.sample()))
         self.layout = GridStack(config.get("layout", {}))
         self.textbox = TextBox(config.get("textbox", {}))
         self.textbox_color = components.Switch(components.Gray(), **config.get("textbox_color", {}))

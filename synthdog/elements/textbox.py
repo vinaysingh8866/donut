@@ -35,6 +35,8 @@ class TextBox:
             left = char_layer.right
 
         text = "".join(chars).strip()
+        #for supporting devnaagri script in hindi language load the font and load the text in the font
+        print(text)
         if len(char_layers) == 0 or len(text) == 0:
             return None, None
 
