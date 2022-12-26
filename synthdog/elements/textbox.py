@@ -35,8 +35,20 @@ class TextBox:
             left = char_layer.right
 
         text = "".join(chars).strip()
-        #for supporting devnaagri script in hindi language load the font and load the text in the font
-        print(text)
+
+        # for char in text.split(" "):
+        #     char_layer = layers.TextLayer(char, **font)
+        #     char_scale = height / char_layer.height
+        #     char_layer.bbox = [left, top, *(char_layer.size * char_scale)]
+        #     if char_layer.right > width:
+        #         break
+
+        #     char_layers.append(char_layer)
+        #     chars.append(char)
+        #     left = char_layer.right
+
+        # text = " ".join(chars).strip()
+        
         if len(char_layers) == 0 or len(text) == 0:
             return None, None
 

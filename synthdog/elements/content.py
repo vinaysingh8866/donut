@@ -10,7 +10,7 @@ from synthtiger import components
 
 from elements.textbox import TextBox
 from layouts import GridStack
-
+from PIL import Image, ImageDraw, ImageFont
 
 class TextReader:
     def __init__(self, path, cache_size=2 ** 28, block_size=2 ** 20):
@@ -74,7 +74,8 @@ class Content:
         self.margin = config.get("margin", [0, 0.1])
         self.reader = TextReader(**config.get("text", {}))
         self.font = components.BaseFont(**config.get("font", {}))
-        print((self.font.sample()))
+        #add devnagri font 
+        
         self.layout = GridStack(config.get("layout", {}))
         self.textbox = TextBox(config.get("textbox", {}))
         self.textbox_color = components.Switch(components.Gray(), **config.get("textbox_color", {}))
@@ -88,7 +89,6 @@ class Content:
         layout_width = max(width - layout_left * 2, 0)
         layout_height = max(height - layout_top * 2, 0)
         layout_bbox = [layout_left, layout_top, layout_width, layout_height]
-
         text_layers, texts = [], []
         layouts = self.layout.generate(layout_bbox)
         self.reader.move(np.random.randint(len(self.reader)))
